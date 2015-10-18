@@ -2,7 +2,7 @@ package sort.library;
 
 import java.util.Comparator;
 
-public class ShakeSorter<T extends Comparable<T>> implements Sorter<T> {
+public class CoctailSorter<T extends Comparable<T>> implements Sorter<T> {
 
 	public T[] sort(T[] array) {
 		int leftMark = 1;
