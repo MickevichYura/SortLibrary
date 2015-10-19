@@ -4,28 +4,30 @@ import java.util.Comparator;
 
 public class SelectionSorter<T extends Comparable<T>> implements Sorter<T> {
 
-	public T[] sort(T[] array) {	
-		int length = array.length;
+	@Override
+	public T[] sort(T[] array) {
 
-		for (int i = 0; i < length - 1; i++) {
-			int min = i;
+		T[] sortArray = selectonSort(array, new Comparator<T>() {
 
-			for (int j = i + 1; j < length; j++) {
-				if (array[j].compareTo(array[min]) < 0) {
-					min = j;
-				}
+			@Override
+			public int compare(T o1, T o2) {
+				return o1.compareTo(o2);
 			}
+		});
 
-			if (min != i) {
-				swap(array, i, min);
-			}
-		}
-
-		return array;
+		return sortArray;
 	}
 
 	@Override
 	public T[] sort(T[] array, Comparator<T> comparator) {
+
+		T[] sortArray = selectonSort(array, comparator);
+
+		return sortArray;
+	}
+
+	
+	private T[] selectonSort(T[] array, Comparator<T> comparator) {
 		int length = array.length;
 
 		for (int i = 0; i < length - 1; i++) {
