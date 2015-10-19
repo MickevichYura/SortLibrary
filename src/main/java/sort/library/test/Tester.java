@@ -1,5 +1,6 @@
 package sort.library.test;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,10 +22,10 @@ public class Tester {
 			array[i] = rand.nextInt(bound);
 
 		}
-		
+
 		for (Sorter<Integer> sorter : sorters) {
 			long before = System.currentTimeMillis();
-			sorter.sort(array);
+			sorter.sort(array.clone());
 			long after = System.currentTimeMillis();
 			speedTest.put(sorter.getClass().getName(), after - before);
 			//System.out.println(Arrays.toString(sorter.sort(array)));
